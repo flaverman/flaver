@@ -5,7 +5,7 @@ pipeline {
     }
 
     environment {
-        ARTIFACT_ID = "suma:${env.BUILD_NUMBER}"
+        ARTIFACT_ID = "flaveruc/suma:${env.BUILD_NUMBER}"
     }
     stages {
         stage("Build"){
