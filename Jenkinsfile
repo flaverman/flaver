@@ -21,6 +21,20 @@ pipeline {
                 sh "docker run ${env.ARTIFACT_ID} npm test"
             }
         }
+
+        stage('Publish'){
+            when {
+                branch 'master'
+
+            }
+            steps {
+                script{
+                    docker.withRegistry("", "DockerHubCredentials"){
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
     }
 
 
